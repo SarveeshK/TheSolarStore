@@ -1,0 +1,31 @@
+services:
+  # 1. API Backend Service
+  - type: web
+    name: solar-platform-api
+    env: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm run start:api
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+  # 2. React Frontend Static Site
+  - type: web
+    name: solar-platform-web
+    env: static
+    rootDir: .
+    buildCommand: npm install && npm run build:web
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: solar-platform-api
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
