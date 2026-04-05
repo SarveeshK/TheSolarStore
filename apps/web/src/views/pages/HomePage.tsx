@@ -1,14 +1,12 @@
 import HeroSection from '@/views/sections/HeroSection';
-import CleanEnergySection from '@/views/sections/CleanEnergySection';
-import HowItWorksSection from '@/views/sections/HowItWorksSection';
+import GlimpsesSection from '@/views/sections/GlimpsesSection';
 import SavingsSection from '@/views/sections/SavingsSection';
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <CleanEnergySection />
-      <HowItWorksSection />
+      <GlimpsesSection />
       <SavingsSection />
     </>
   );

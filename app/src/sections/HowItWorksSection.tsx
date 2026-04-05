@@ -70,7 +70,7 @@ const HowItWorksSection = () => {
         {/* CTA */}
         <div className="text-center mt-16">
           <button 
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/contact#contact')}
             className="btn-luxury"
           >
             {language === 'en' ? 'Get Your Custom Design' : 'உங்கள் தனிப்பயன் வடிவமைப்பைப் பெறுங்கள்'} <ArrowRight className="w-4 h-4 ml-2" />

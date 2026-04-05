@@ -18,6 +18,11 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Auto-close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
 
 
   const navLinks = [
@@ -39,7 +44,7 @@ const Navigation = () => {
             : 'relative bg-white border-b border-[#E2E8F0]'
         }`}
       >
-        <div className="container-luxury py-4 flex items-center justify-between">
+        <div className="container-luxury py-2 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="The Solar Store" className="h-10 w-auto" />
@@ -58,6 +63,11 @@ const Navigation = () => {
             <Link
               key={link.path}
               to={link.path}
+              onClick={() => {
+                if (location.pathname === link.path) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`font-medium transition-colors ${language === 'ta' ? 'text-xs whitespace-nowrap' : 'text-sm'} ${location.pathname === link.path ? 'text-[#FF6A00]' : 'text-[#0B1F4A] hover:text-[#FF6A00]'}`}
             >
               {link.label}
@@ -71,7 +81,7 @@ const Navigation = () => {
             >
               {language === 'en' ? 'TA' : 'EN'}
             </button>
-            <button onClick={() => { navigate('/contact'); setIsMobileMenuOpen(false); }} className={`btn-luxury ${language === 'ta' ? 'px-5 py-3 text-xs whitespace-nowrap' : ''}`}>
+            <button onClick={() => { navigate('/contact#contact'); setIsMobileMenuOpen(false); }} className={`btn-luxury ${language === 'ta' ? 'px-5 py-3 text-xs whitespace-nowrap' : ''}`}>
               {language === 'en' ? 'Get Quote' : 'மதிப்பீட்டைப் பெறுங்கள்'}
             </button>
           </div>
@@ -108,7 +118,7 @@ const Navigation = () => {
               {link.label}
             </Link>
           ))}
-          <button onClick={() => { navigate('/contact'); setIsMobileMenuOpen(false); }} className="btn-luxury w-11/12 mt-2">
+          <button onClick={() => { navigate('/contact#contact'); setIsMobileMenuOpen(false); }} className="btn-luxury w-11/12 mt-2">
             {language === 'en' ? 'Get Quote' : 'மதிப்பீட்டைப் பெறுங்கள்'}
           </button>
           <button 

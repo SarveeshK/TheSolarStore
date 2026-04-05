@@ -28,7 +28,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Form */}
-          <div className="card-luxury p-8 md:p-10 pb-20 lg:pb-10 relative">
+          <div className="card-luxury p-5 md:p-10 pb-20 lg:pb-10 relative">
             <h3 className="heading-card text-[#0B1F4A] mb-8">{en ? 'Request a Quote' : 'மதிப்பீட்டைக் கோருங்கள்'}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -120,8 +120,8 @@ const ContactSection = () => {
 
           {/* Contact Info */}
           <div>
-            <div className="card-luxury p-8 md:p-10 mb-8">
-              <h3 className="heading-card text-[#0B1F4A] mb-8">{language === 'en' ? 'Contact Information' : 'தொடர்பு தகவல்'}</h3>
+            <div className="card-luxury p-5 md:p-10 mb-8">
+              <h3 className="heading-card text-[#0B1F4A] mb-8">{en ? 'Contact Information' : 'தொடர்பு தகவல்'}</h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -142,7 +142,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium text-[#0B1F4A]">{en ? 'Email' : 'மின்னஞ்சல்'}</p>
-                    <a href="mailto:rameshkannangandhi73@gmail.com" className="text-[#64748B] hover:text-[#FF6A00] transition-colors">
+                    <a href="mailto:rameshkannangandhi73@gmail.com" className="text-[#64748B] hover:text-[#FF6A00] transition-colors break-all">
                       rameshkannangandhi73@gmail.com
                     </a>
                   </div>

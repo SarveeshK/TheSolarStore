@@ -7,10 +7,12 @@ import HomePage from './pages/HomePage';
 import SchemePage from './pages/SchemePage';
 import ProductsPage from './pages/ProductsPage';
 import ContactPage from './pages/ContactPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="relative overflow-x-hidden w-full">
         <Toaster position="top-right" richColors />
         

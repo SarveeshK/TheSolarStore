@@ -89,6 +89,13 @@ const Footer = () => {
               >
                 {language === 'en' ? 'Terms of Service' : 'சேவை விதிமுறைகள்'}
               </button>
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-sm font-medium text-[#FF6A00] hover:text-[#0B1F4A] transition-colors ml-4"
+                aria-label="Go to Top"
+              >
+                {language === 'en' ? '↑ Go to Top' : '↑ மேலே செல்ல'}
+              </button>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from '@/shared/components/ScrollToTop';
 import Layout from '@/ui/Layout';
 import HomePage from '@/views/pages/HomePage';
 import SchemePage from '@/views/pages/SchemePage';
@@ -11,6 +12,7 @@ import ContactPage from '@/views/pages/ContactPage';
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="relative overflow-x-hidden w-full">
         <Toaster position="top-right" richColors />
         

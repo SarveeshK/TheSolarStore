@@ -9,9 +9,9 @@ const HeroSection = () => {
 
 
   return (
-    <section id="hero" className="relative min-h-screen bg-[#FAFBFC]">
-      <div className="container-luxury pt-20 md:pt-32 pb-12 md:pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-8rem)]">
+    <section id="hero" className="relative lg:min-h-screen bg-[#FAFBFC]">
+      <div className="container-luxury pt-6 md:pt-4 pb-12 md:pb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center lg:min-h-[calc(100vh-8rem)]">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
             <p className="label-elegant mb-6">{t('hero.badge')}</p>
@@ -23,7 +23,7 @@ const HeroSection = () => {
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => navigate('/contact')} className="btn-luxury">
+              <button onClick={() => navigate('/contact#contact')} className="btn-luxury">
                 {t('hero.cta')} <ArrowRight className="w-4 h-4 ml-2" />
               </button>
               <button onClick={() => navigate('/scheme')} className="btn-luxury-outline">
