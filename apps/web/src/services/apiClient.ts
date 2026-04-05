@@ -1,7 +1,16 @@
 import axios from 'axios';
 
 // Get base URL from environment or use local backend for dev
-const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const getBaseURL = () => {
+  const envURL = import.meta.env.VITE_API_URL;
+  if (envURL) {
+    // Ensure Render's direct service URL (usually without /api) gets the /api suffix
+    return envURL.endsWith('/api') ? envURL : `${envURL.replace(/\/$/, '')}/api`;
+  }
+  return 'http://localhost:5000/api';
+};
+
+const baseURL = getBaseURL();
 
 export const apiClient = axios.create({
   baseURL,

@@ -1,7 +1,7 @@
 services:
   # 1. API Backend Service
   - type: web
-    name: solar-platform-api
+    name: TheSolarStore
     env: node
     plan: free
     rootDir: .
@@ -15,7 +15,7 @@ services:
 
   # 2. React Frontend Static Site
   - type: web
-    name: solar-platform-web
+    name: TheSolarStore-web
     env: static
     rootDir: .
     buildCommand: npm install && npm run build:web
@@ -24,7 +24,7 @@ services:
       - key: VITE_API_URL
         fromService:
           type: web
-          name: solar-platform-api
+          name: TheSolarStore
           envVarKey: RENDER_EXTERNAL_URL
     routes:
       - type: rewrite
