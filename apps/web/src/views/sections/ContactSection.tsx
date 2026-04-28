@@ -2,13 +2,7 @@ import { Phone, Mail, Clock, MapPin, Send, Loader2 } from 'lucide-react';
 import { useContactViewModel } from '@/features/contact/viewModels/useContactViewModel';
 
 const ContactSection = () => {
-  const {
-    register,
-    handleSubmit,
-    errors,
-    isSubmitting,
-    en
-  } = useContactViewModel();
+  const { register, handleSubmit, errors, isSubmitting, en } = useContactViewModel();
 
   return (
     <section id="contact" className="section-padding bg-white">
@@ -16,12 +10,10 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="label-elegant mb-6">{en ? 'Get in Touch' : 'தொடர்பில் இருங்கள்'}</p>
-          <h2 className="heading-section text-[#0B1F4A] mb-6">
-            {en ? 'Contact Us' : 'எங்களைத் தொடர்பு கொள்ள'}
-          </h2>
+          <h2 className="heading-section text-[#0B1F4A] mb-6">{en ? 'Contact Us' : 'எங்களைத் தொடர்பு கொள்ள'}</h2>
           <p className="body-elegant">
             {en
-              ? 'Have questions about going solar? Our team is here to help. Fill out the form below and we\'ll get back to you within 24 hours.'
+              ? "Have questions about going solar? Our team is here to help. Fill out the form below and we'll get back to you within 24 hours."
               : 'சோலார் அமைப்பது பற்றி கேள்விகள் உள்ளதா? உதவ எங்கள் குழு இங்கே உள்ளது. கீழே உள்ள படிவத்தை பூர்த்தி செய்து அனுப்பவும், 24 மணிநேரத்திற்குள் நாங்கள் உங்களை தொடர்புகொள்வோம்.'}
           </p>
         </div>
@@ -30,76 +22,115 @@ const ContactSection = () => {
           {/* Form */}
           <div className="card-luxury p-8 md:p-10 pb-20 lg:pb-10 relative">
             <h3 className="heading-card text-[#0B1F4A] mb-8">{en ? 'Request a Quote' : 'மதிப்பீட்டைக் கோருங்கள்'}</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[#0B1F4A] mb-2">
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-[#0B1F4A] mb-2">
                     {en ? 'Full Name' : 'முழு பெயர்'}
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
+                    autoComplete="name"
                     {...register('name')}
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? 'contact-name-error' : undefined}
                     className="w-full px-4 py-3 border border-[#E2E8F0] bg-white focus:border-[#0B1F4A] outline-none transition-colors"
                     placeholder={en ? 'Your name' : 'உங்கள் பெயர்'}
                   />
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                  {errors.name && (
+                    <p id="contact-name-error" className="text-red-500 text-xs mt-1">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#0B1F4A] mb-2">
+                  <label htmlFor="contact-phone" className="block text-sm font-medium text-[#0B1F4A] mb-2">
                     {en ? 'Phone Number' : 'தொலைபேசி எண்'}
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
+                    autoComplete="tel"
                     {...register('phone')}
+                    aria-invalid={Boolean(errors.phone)}
+                    aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
                     className="w-full px-4 py-3 border border-[#E2E8F0] bg-white focus:border-[#0B1F4A] outline-none transition-colors"
                     placeholder="+91 98765 43210"
                   />
-                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                  {errors.phone && (
+                    <p id="contact-phone-error" className="text-red-500 text-xs mt-1">
+                      {errors.phone.message}
+                    </p>
+                  )}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#0B1F4A] mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-medium text-[#0B1F4A] mb-2">
                   {en ? 'Email Address' : 'மின்னஞ்சல் முகவரி'}
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
+                  autoComplete="email"
                   {...register('email')}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'contact-email-error' : undefined}
                   className="w-full px-4 py-3 border border-[#E2E8F0] bg-white focus:border-[#0B1F4A] outline-none transition-colors"
                   placeholder="your@email.com"
                 />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                {errors.email && (
+                  <p id="contact-email-error" className="text-red-500 text-xs mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#0B1F4A] mb-2">
+                <label htmlFor="contact-address" className="block text-sm font-medium text-[#0B1F4A] mb-2">
                   {en ? 'Address' : 'முகவரி'}
                 </label>
                 <input
+                  id="contact-address"
                   type="text"
+                  autoComplete="street-address"
                   {...register('address')}
+                  aria-invalid={Boolean(errors.address)}
+                  aria-describedby={errors.address ? 'contact-address-error' : undefined}
                   className="w-full px-4 py-3 border border-[#E2E8F0] bg-white focus:border-[#0B1F4A] outline-none transition-colors"
                   placeholder={en ? 'Your address in Erode, Tamil Nadu' : 'ஈரோடு, தமிழ்நாட்டில் உங்கள் முகவரி'}
                 />
-                {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>}
+                {errors.address && (
+                  <p id="contact-address-error" className="text-red-500 text-xs mt-1">
+                    {errors.address.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#0B1F4A] mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-[#0B1F4A] mb-2">
                   {en ? 'Message' : 'செய்தி'}
                 </label>
                 <textarea
+                  id="contact-message"
                   {...register('message')}
                   rows={4}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? 'contact-message-error' : undefined}
                   className="w-full px-4 py-3 border border-[#E2E8F0] bg-white focus:border-[#0B1F4A] outline-none transition-colors resize-none"
                   placeholder={en ? 'Tell us about your requirements...' : 'உங்கள் தேவைகளைப் பற்றி எங்களிடம் கூறுக...'}
                 />
-                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                {errors.message && (
+                  <p id="contact-message-error" className="text-red-500 text-xs mt-1">
+                    {errors.message.message}
+                  </p>
+                )}
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="btn-luxury w-full flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
@@ -165,9 +196,17 @@ const ContactSection = () => {
                   <div>
                     <p className="font-medium text-[#0B1F4A]">{en ? 'Location' : 'தொடர்பு கொள்ள வேண்டிய இடம்'}</p>
                     <p className="text-[#64748B]">
-                      {en 
-                        ? <><span className="block">123 Solar Street, Erode</span><span>Tamil Nadu, India - 638001</span></>
-                        : <><span className="block">123 சோலார் தெரு, ஈரோடு</span><span>தமிழ்நாடு, இந்தியா - 638001</span></>}
+                      {en ? (
+                        <>
+                          <span className="block">123 Solar Street, Erode</span>
+                          <span>Tamil Nadu, India - 638001</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="block">123 சோலார் தெரு, ஈரோடு</span>
+                          <span>தமிழ்நாடு, இந்தியா - 638001</span>
+                        </>
+                      )}
                     </p>
                   </div>
                 </div>
