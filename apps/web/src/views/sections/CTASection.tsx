@@ -31,12 +31,6 @@ const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => navigate('/contact')}
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#FF6A00] text-white font-medium hover:bg-[#e65f00] transition-colors"
-            >
-              {language === 'en' ? 'Get Free Quote' : 'இலவச மதிப்பீட்டைப் பெறுங்கள்'} <ArrowRight className="w-4 h-4 ml-2" />
-            </button>
             <a 
               href="tel:+919345765116"
               className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-medium hover:bg-white/20 transition-colors"

@@ -23,9 +23,6 @@ const HeroSection = () => {
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => navigate('/contact')} className="btn-luxury">
-                {t('hero.cta')} <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
               <button onClick={() => navigate('/scheme')} className="btn-luxury-outline">
                 {t('hero.cta2')}
               </button>

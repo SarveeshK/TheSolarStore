@@ -31,11 +31,11 @@ const WhatsAppQuoteForm = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-48 right-4 md:bottom-28 md:right-8 z-[60] flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_25px_rgba(37,211,102,0.55)] hover:-translate-y-1 transition-all duration-300 font-semibold text-sm"
-        aria-label="Get WhatsApp Quote"
+        className="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-[60] flex items-center gap-2 bg-[#25D366] text-white p-3.5 md:px-5 md:py-3.5 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_25px_rgba(37,211,102,0.55)] hover:-translate-y-1 transition-all duration-300 font-semibold text-sm border-2 border-white/20"
+        aria-label="Get Quote"
       >
-        <MessageCircle className="w-5 h-5" />
-        <span className="hidden sm:block">{en ? 'Get Quick Quote' : 'விரைவு மதிப்பீடு'}</span>
+        <MessageCircle className="w-6 h-6 md:w-5 md:h-5" />
+        <span className="hidden sm:block">{en ? 'Get Quote' : 'மதிப்பீடு பெறுங்கள்'}</span>
       </button>
 
       {/* Modal Overlay */}

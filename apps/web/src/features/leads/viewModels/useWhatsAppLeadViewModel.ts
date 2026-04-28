@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export type Step = 1 | 2 | 3;
@@ -31,6 +31,12 @@ export const useWhatsAppLeadViewModel = (): UseWhatsAppLeadViewModelReturn => {
   const [selectedRoof, setSelectedRoof] = useState('');
   const [selectedBill, setSelectedBill] = useState('');
   const [location, setLocation] = useState('');
+
+  useEffect(() => {
+    const handleOpenForm = () => setIsOpen(true);
+    window.addEventListener('open-quote-form', handleOpenForm);
+    return () => window.removeEventListener('open-quote-form', handleOpenForm);
+  }, []);
 
   const reset = () => {
     setStep(1);

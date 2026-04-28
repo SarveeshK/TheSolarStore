@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from '@/ui/Navigation';
 import Footer from '@/ui/Footer';
-import WhatsAppWidget from '@/shared/components/WhatsAppWidget';
 import BookVisitWidget from '@/shared/components/BookVisitWidget';
-
+import WhatsAppQuoteForm from '@/shared/components/WhatsAppQuoteForm';
 const Layout = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -12,9 +11,8 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppWidget />
       <BookVisitWidget />
-      
+      <WhatsAppQuoteForm />
 
     </div>
   );

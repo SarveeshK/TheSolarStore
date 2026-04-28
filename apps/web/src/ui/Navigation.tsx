@@ -71,9 +71,6 @@ const Navigation = () => {
             >
               {language === 'en' ? 'TA' : 'EN'}
             </button>
-            <button onClick={() => { navigate('/contact'); setIsMobileMenuOpen(false); }} className={`btn-luxury ${language === 'ta' ? 'px-5 py-3 text-xs whitespace-nowrap' : ''}`}>
-              {language === 'en' ? 'Get Quote' : 'மதிப்பீட்டைப் பெறுங்கள்'}
-            </button>
           </div>
         </div>
 
@@ -108,9 +105,6 @@ const Navigation = () => {
               {link.label}
             </Link>
           ))}
-          <button onClick={() => { navigate('/contact'); setIsMobileMenuOpen(false); }} className="btn-luxury w-11/12 mt-2">
-            {language === 'en' ? 'Get Quote' : 'மதிப்பீட்டைப் பெறுங்கள்'}
-          </button>
           <button 
             onClick={toggleLanguage}
             className="flex items-center justify-center w-11/12 py-3 rounded-xl border border-[#0B1F4A] text-[#0B1F4A] transition-colors font-medium"
